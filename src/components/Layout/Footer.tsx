@@ -4,12 +4,12 @@ import { HiOutlineShoppingBag, HiOutlineTrash } from 'react-icons/hi2';
 import { FaXmark } from 'react-icons/fa6';
 import { FaArrowUp, FaPlus, FaWindowMinimize, FaInstagram } from 'react-icons/fa';
 import { FiHeadphones, FiLogIn } from 'react-icons/fi';
-
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link} from 'react-router-dom';
 
 import { Badge } from 'antd';
 import { AiOutlineUserAdd } from 'react-icons/ai';
-import { showUserTag, toTop } from '../../js/reponsive';
+import { showSudMenuFooter, showUserTag, toTop } from '../../js/reponsive';
 
 const Footer = ()=>{
 

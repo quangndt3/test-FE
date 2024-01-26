@@ -1,27 +1,35 @@
 import { UploadOutlined } from '@ant-design/icons';
 import { message, Button, Upload } from 'antd';
-
+import { RcFile } from 'antd/es/upload';
+import { UploadChangeParam, UploadFile, UploadListType } from 'antd/es/upload/interface';
+import React from 'react';
 import { useState, useEffect } from 'react';
 
+type Props = {
+   multiple: boolean;
+   maxCount: number;
+   listStyle: UploadListType;
+   getListFiles: (files: File[], public_id?: string) => void;
+   defaultFiles?: UploadFile[];
+};
 
-
-const UploadButton = ({ maxCount, multiple, listStyle, getListFiles, defaultFiles }) => {
+const UploadButton = ({ maxCount, multiple, listStyle, getListFiles, defaultFiles }: Props) => {
    const [fileList, setFileList] = useState([]);
-   const beforeUpload = (file) => {
+   const beforeUpload = (file:RcFile) => {
       const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
       if (!isJpgOrPng) {
          message.error('You can only upload JPG/PNG file!');
       }
       return !isJpgOrPng;
    };
-   const handleChange = (info) => {
+   const handleChange = (info:UploadChangeParam<UploadFile>) => {
       if (info.file.percent === 0) {
          return;
       }
       setFileList(info.fileList);
       getListFiles([...info.fileList.map((file) => file.originFileObj)] );
    };
-   const handleRemoveFile = (fileRes) => {
+   const handleRemoveFile = (fileRes:UploadFile) => {
       setFileList((prev) => prev.filter((file) => file.uid !== fileRes.uid));
       getListFiles(
          fileList.filter((file) => file.uid !== fileRes.uid).map((file) => file.originFileObj) ,

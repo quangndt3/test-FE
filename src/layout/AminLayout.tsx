@@ -6,26 +6,26 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 
-import { Breadcrumb, Layout, Menu, Popover, message, theme } from 'antd';
+import { Breadcrumb, Layout, Menu, MenuProps, Popover, message, theme } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 import React, { useContext, useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
 import { userContext } from '../main';
-
+type MenuItem = Required<MenuProps>['items'][number];
 function getItem(
-  label,
-  key,
-  icon,
-  children,
-) {
+  label: React.ReactNode,
+  key: React.Key,
+  icon?: React.ReactNode,
+  children?: MenuItem[],
+): MenuItem {
   return {
     key,
     icon,
     children,
     label,
-  };
+  } as MenuItem;
 }
 
 const items = [

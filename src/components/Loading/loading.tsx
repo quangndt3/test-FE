@@ -1,6 +1,6 @@
 import { Spin } from 'antd'
 import FlowerIcon from '../Icons/FlowerIcon'
-
+import React from 'react';
 const Loading = ({ sreenSize }) => {
    const flowerIcon = <FlowerIcon className='spin' />
    return (

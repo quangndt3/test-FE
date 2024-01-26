@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Form } from 'antd';
 import { Link } from 'react-router-dom';
-
-
+import React from 'react';
+type Props = {
+   placeHolder: string;
+   onSubmit?: () => void;
+   changeValue?: (value: string) => void;
+   linkBack: string;
+   initValue?: string;
+   disabled?: boolean;
+   hasName?: boolean;
+};
 const HeadForm = ({
    hasName = true,
    disabled = false,
@@ -11,8 +19,8 @@ const HeadForm = ({
    linkBack,
    initValue,
    onSubmit
-}) => {
-   const [value, setValue] = useState(initValue || '');
+}: Props) => {
+   const [value, setValue] = useState<string>(initValue || '');
    useEffect(() => {
       if (!initValue) return;
       setValue(initValue);
@@ -21,7 +29,7 @@ const HeadForm = ({
       <div className='flex justify-between items-center w-full relative '>
          {hasName && (
             <input
-               onChange={(e) => {
+               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setValue(e.target.value);
                   changeValue && changeValue(e.target.value);
                }}

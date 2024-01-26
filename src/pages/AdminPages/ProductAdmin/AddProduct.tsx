@@ -1,8 +1,7 @@
 import { Divider, Form, Input, Radio, Space } from 'antd';
-
 import { Link, useNavigate } from 'react-router-dom';
 import UploadButton from './components/UploadButton';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { uploadImages } from '../../../api/upload';
 import BlockForm from './components/BlockForm';
 import TextQuill from './components/TextQuill';
@@ -14,13 +13,13 @@ import Loading from '../../../components/loading/loading';
 
 
 const AddProduct = () => {
-   const [loading, setLoading] = useState(false);
-   const [files, setFiles] = useState([]);
-   const [name, setName] = useState('');
-   const [productPrice, setProductPrice] = useState();
+   const [loading, setLoading] = useState<boolean>(false);
+   const [files, setFiles] = useState<File[]>([]);
+   const [name, setName] = useState<string>('');
+   const [productPrice, setProductPrice] = useState<number>();
    const [form] = Form.useForm();
    const navigate = useNavigate();
-   const handleGetFiles = (files) => {
+   const handleGetFiles = (files:File[]) => {
       form.setFieldValue('images', files);
       setFiles(files);
    };
@@ -36,12 +35,7 @@ const AddProduct = () => {
             res
             navigate('/manage');
          })
-         if (error) {
-            console.log(error);
-            return;
-         }
          setLoading(false);
-   
       } catch (error) {
          setLoading(false);
          console.log(error);

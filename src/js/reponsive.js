@@ -22,3 +22,11 @@ export  const toTop = () => {
     const user_tag_mobile_content = document.querySelector('.user-tag-mobile-content');
     user_tag_mobile_content?.classList.toggle('max-xl:translate-x-[0%]');
  };
+ export const showSudMenuFooter = (selecter, afterSelecter, beforeSelecter) => {
+   const ft_cate = document.querySelector(selecter);
+   ft_cate?.classList.toggle('max-lg:!h-[247px]');
+   const afterSelecterElement = document.querySelector(afterSelecter);
+   afterSelecterElement?.classList.toggle('hidden');
+   const beforeSelecterElement = document.querySelector(beforeSelecter);
+   beforeSelecterElement?.classList.toggle('hidden');
+};

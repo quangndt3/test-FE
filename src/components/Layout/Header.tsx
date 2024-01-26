@@ -10,13 +10,13 @@ import { GoHeart } from 'react-icons/go';
 import { showMenuReponsive } from '../../js/reponsive';
 import { useContext } from 'react';
 import { userContext } from '../../main';
-
+import React from 'react';
+import { Iuser } from '../../interface/user';
 const Header = ()=>{
-      const user = useContext(userContext)
+      const user:Iuser|null = useContext(userContext)
       const logout = ()=>{
          localStorage.removeItem("user")
          localStorage.removeItem("token")
-         setUser({})
          window.location.href = "/"
       }
 

@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom"
 import Header from "../components/Layout/Header"
-import Footer from "../components/Layout/footer"
+import Footer from "../components/Layout/Footer"
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop"
-
+import React from 'react';
 const DefaultLayout = ()=>{
     return<>
      <Header />

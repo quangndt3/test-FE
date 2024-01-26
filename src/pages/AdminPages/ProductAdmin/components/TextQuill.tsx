@@ -1,8 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { LegacyRef, useEffect, useMemo, useRef, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
-
+import React from 'react';
+type Props = {
+   getValue: (value: string) => void;
+   defaultValue?: string;
+};
 const formats = [
    'header',
    'bold',
@@ -17,9 +20,9 @@ const formats = [
    'image'
 ];
 
-const TextQuill = ({ getValue, defaultValue } ) => {
-   const [value, setValue] = useState('');
-   const handleGetValue = (value) => {
+const TextQuill = ({ getValue, defaultValue }:Props ) => {
+   const [value, setValue] = useState<string>('');
+   const handleGetValue = (value:string) => {
       getValue(value);
       setValue(value);
    };
@@ -28,7 +31,7 @@ const TextQuill = ({ getValue, defaultValue } ) => {
          setValue(defaultValue);
       }
    }, [defaultValue]);
-   const quillRef = useRef() ;
+   const quillRef = useRef() as LegacyRef<ReactQuill>;
    const modules = useMemo(
       () => ({
          toolbar: [

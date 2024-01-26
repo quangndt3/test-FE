@@ -2,7 +2,8 @@ import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-export const userContext = createContext()
+import { Iuser } from './interface/user.js'
+export const userContext = createContext(null)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
