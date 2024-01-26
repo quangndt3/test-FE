@@ -7,14 +7,12 @@ import { Link } from 'react-router-dom';
 
 import { Badge, Popover } from 'antd';
 import { GoHeart } from 'react-icons/go';
-import { useEffect, useState } from 'react';
 import { showMenuReponsive } from '../../js/reponsive';
+import { useContext } from 'react';
+import { userContext } from '../../main';
 
 const Header = ()=>{
-      const [user,setUser] = useState({})
-      useEffect(()=>{
-         setUser(JSON.parse(localStorage.getItem('user')));
-      },[])
+      const user = useContext(userContext)
       const logout = ()=>{
          localStorage.removeItem("user")
          localStorage.removeItem("token")

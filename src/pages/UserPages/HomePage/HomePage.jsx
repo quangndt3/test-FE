@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useEffect, useState } from "react"
 import { getAll } from "../../../api/product"
 import ShowProducts from "./components/ShowProduct"
 import { ConfigProvider, Pagination } from "antd"
@@ -16,6 +16,7 @@ const HomePage = () => {
       const { data } = await getAll(index)
       setProducts(data)
    }
+
    return <>
 
       <section className='section-main lg:pb-[100px] md:pb-[80px] max-md:pb-[60px] border-b-[1px] border-[#e2e2e2]'>

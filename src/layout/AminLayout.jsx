@@ -9,9 +9,10 @@ import {
 import { Breadcrumb, Layout, Menu, Popover, message, theme } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
+import { userContext } from '../main';
 
 function getItem(
   label,
@@ -40,7 +41,7 @@ const items = [
 ];
 const AdminLayout = () => {
   const navigate = useNavigate()
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = useContext(userContext)
   useEffect(() => {
 
     if(user?.role!='admin'){
