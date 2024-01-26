@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import {  message } from 'antd';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {  signUp } from '../../../api/user';
+import { account } from '../../../interface/user';
 
 const SignUpPage = () => {
-   const [email, setEmail] = useState('');
-   const [password, setpassword] = useState('');
-   const [repassword,setRepassword] = useState('');
+   const [email, setEmail] = useState<string>('');
+   const [password, setpassword] = useState<string>('');
+   const [repassword,setRepassword] = useState<string>('');
    const [messageApi, contextHolder] = message.useMessage();
-   const ApiSignUp = async (account)=>{
+   const ApiSignUp = async (account:account)=>{
     const {data} = await signUp(account)
     return data
 }

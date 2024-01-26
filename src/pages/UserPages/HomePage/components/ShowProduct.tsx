@@ -1,12 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { ConfigProvider, Rate, message } from 'antd';
 import { useEffect, useState } from 'react';
+import React from 'react';
 import { AiOutlineEye, AiOutlineHeart } from 'react-icons/ai';
 import { HiOutlineShoppingBag } from 'react-icons/hi2';
 import { Link } from 'react-router-dom';
+import { IProduct } from '../../../../interface/product';
 
-
-const ShowProducts = ({ data }) => {
+type Props = {
+   data : IProduct[]
+}
+const ShowProducts = ({ data }:Props) => {
    const [user, setUser] = useState({})
    useEffect(() => {
       setUser(localStorage.getItem('user'));
@@ -14,7 +18,7 @@ const ShowProducts = ({ data }) => {
    return (
       <div>
          <div className='list-products grid xl:grid-cols-3 pt-[30px] lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 max-sm:grid-cols-2  max-md:gap-[12px]'>
-            {data?.results?.docs?.map((item) => {
+            {data?.map((item) => {
                return (
                   <>
                      <div className=' product-item md:p-[10px]  max-xl:mb-[18px]'>

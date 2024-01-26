@@ -1,7 +1,7 @@
 
 import instance from '.';
 
-export const uploadImages = (files ) => {
+export const uploadImages = (files:File[] ) => {
    const formData = new FormData();
    for (const file of files) {
       formData.append('images', file);

@@ -20,3 +20,11 @@ export type productResponseGetAll={
         page:number
     }
 } 
+export type formProduct={
+    _id: string;
+    name: string,
+    desc: string,
+    price: number,
+    images:img[],
+    id?: string;
+}

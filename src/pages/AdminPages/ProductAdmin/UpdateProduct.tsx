@@ -83,7 +83,7 @@ const UpdateProduct = () => {
       const newFormData = form.getFieldsValue(true);
       newFormData.shipments = undefined;
       await updateProduct({
-        idProduct: id,
+        id: id,
         ...{ ...newFormData, productName },
       }).then((res) => {
         res;
@@ -94,7 +94,6 @@ const UpdateProduct = () => {
       console.log(error);
     }
   };
-  console.log(data?.desc);
   return (
     <div className="">
       <Form

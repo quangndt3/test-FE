@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import {  message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import { GoogleOutlined } from '@ant-design/icons';
+import React from 'react';
 import { logIn } from '../../../api/user';
-
+import { account } from "../../../interface/user";
 const LoginPage = () => {
-   const [email, setEmail] = useState('');
-   const [password, setpassword] = useState('');
+   const [email, setEmail] = useState<string>('');
+   const [password, setpassword] = useState<string>('');
    const [messageApi, contextHolder] = message.useMessage();
-   const ApiLogin = async (account)=>{
+   const ApiLogin = async (account:account)=>{
     const {data} = await logIn(account)
     return data
 }

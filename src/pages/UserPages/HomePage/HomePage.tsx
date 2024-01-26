@@ -1,10 +1,12 @@
 import {  useEffect, useState } from "react"
 import { getAll } from "../../../api/product"
+import React from 'react';
 import ShowProducts from "./components/ShowProduct"
 import { ConfigProvider, Pagination } from "antd"
+import { productResponseGetAll } from "../../../interface/product";
 
 const HomePage = () => {
-   const [products, setProducts] = useState([])
+   const [products, setProducts] = useState<productResponseGetAll>()
    const featchProducts = async () => {
       const { data } = await getAll()
       setProducts(data)
@@ -12,7 +14,7 @@ const HomePage = () => {
    useEffect(() => {
       featchProducts()
    }, [])
-   const handlePageChange = async (index) => {
+   const handlePageChange = async (index:number) => {
       const { data } = await getAll(index)
       setProducts(data)
    }
@@ -31,7 +33,7 @@ const HomePage = () => {
                </span>
                <div className='product-item mb-[30px]'>
                   {products?.results?.docs?.length ? (
-                     <ShowProducts data={products} />
+                     <ShowProducts data={products.results?.docs} />
                   ) : (
                      <div className='text-center text-red-500 text-[20px] font-bold'>
                         Không có sản phẩm nào phù hợp
