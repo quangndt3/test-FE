@@ -79,7 +79,7 @@ const ProductAdmin = ()=>{
                 </div>
             </div>
             <div>
-            <Pagination pageSize={3} onChange={(current) => handlePageChange(current)}  defaultCurrent={products?.results?.page} total={products?.results?.totalDocs} />
+            <Pagination pageSize={products?.results?.limit} onChange={(current) => handlePageChange(current)}  defaultCurrent={products?.results?.page} total={products?.results?.totalDocs} />
             </div>
         </div>
     </div>
