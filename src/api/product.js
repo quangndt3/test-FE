@@ -2,7 +2,7 @@ import instance from '.';
 const uri = "/api/v1/product"
 export const getAll =(page=1)=>{
   
-    return instance.get(uri+"?_page="+page,);
+    return instance.get(uri+"/list?_page="+page,);
 }
 export const removeProduct =(Product_id)=>{
     
@@ -18,5 +18,5 @@ export const updateProduct =(product)=>{
 }
 export const getOne =(_id)=>{
     
-    return instance.get(uri+"/"+_id,);
+    return instance.get(uri+"/getone/"+_id,);
 }
