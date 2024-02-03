@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Row from "./components/row"
 import { getAll, removeProduct } from "../../../api/product"
 import { Link } from "react-router-dom"
-import { Pagination } from "antd"
+import { Pagination, message } from "antd"
 import React from 'react';
 import { productResponseGetAll } from "../../../interface/product"
 const ProductAdmin = ()=>{
@@ -26,7 +26,7 @@ const ProductAdmin = ()=>{
         await removeProduct(_id)
         await  featchProducts()
             handlePageChange(1)
-        
+            message.success("Xoá sản phẩn thành công!");
        }
 
     }

@@ -87,8 +87,9 @@ const UpdateProduct = () => {
         ...{ ...newFormData, productName },
       }).then((res) => {
         res;
-        message.success("Cập nhật sản phẩn thành công!");
+        
         navigate("/manage/products");
+        message.success("Cập nhật sản phẩn thành công!");
       });
     } catch (error) {
       console.log(error);

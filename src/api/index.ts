@@ -6,6 +6,6 @@ const instance = axios.create({
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`
     },
-    timeout:10000
+    timeout:100000
 })
 export default instance

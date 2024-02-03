@@ -1,4 +1,4 @@
-import { Divider, Form, Input, Radio, Space } from 'antd';
+import { Divider, Form, Input, Radio, Space, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import UploadButton from './components/UploadButton';
 import React, { useState } from 'react';
@@ -34,6 +34,7 @@ const AddProduct = () => {
          await addProduct(newFormData).then(res=>{
             res
             navigate('/manage');
+            message.success("Thêm sản phẩn thành công!");
          })
          setLoading(false);
       } catch (error) {
